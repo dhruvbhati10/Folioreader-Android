@@ -15,6 +15,8 @@
  */
 package com.folioreader.ui.activity
 
+import android.view.WindowManager//changes made here
+
 import android.Manifest
 import android.app.Activity
 import android.app.ActivityManager
@@ -266,7 +268,10 @@ class FolioActivity : AppCompatActivity(), FolioActivityCallback, MediaControlle
 
         // Fix for screen get turned off while reading
         // TODO -> Make this configurable
-        // getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        
+        
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
+        window.setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE) // changes made here
 
         setConfig(savedInstanceState)
         initDistractionFreeMode(savedInstanceState)
